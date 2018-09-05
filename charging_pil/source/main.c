@@ -23,7 +23,7 @@ const uint tmp_tab[100] = { 751,742,733,726,716,706,697,687,678,668, //0-9'c
                             };
 
 
-/***** ÑÓÊ±º¯Êı ****/
+/***** å»¶æ—¶å‡½æ•° ****/
 void  delay_ms(uchar  ms)
 {
     uchar  i,j;
@@ -34,22 +34,22 @@ void  delay_ms(uchar  ms)
     }
 }
 /************************************* 
-*º¯ÊıÃû:  void  Fosc_Init(void)
-* ÊäÈë²ÎÊı: ÎŞ
-* ·µ»ØÖµ:   ÎŞ
-*º¯ÊıÃèÊö:  ³õÊ¼»¯Ê±ÖÓÎª8M
+*å‡½æ•°å:  void  Fosc_Init(void)
+* è¾“å…¥å‚æ•°: æ— 
+* è¿”å›å€¼:   æ— 
+*å‡½æ•°æè¿°:  åˆå§‹åŒ–æ—¶é’Ÿä¸º8M
 *************************************/
 void  Fosc_Init(void)
 {
-    CLK_CKDIVR_HSIDIV = 1;    //2·ÖÆµ
+    CLK_CKDIVR_HSIDIV = 1;    //2åˆ†é¢‘
 }
 
-
+/*do a test*/
 /************************************* 
-*º¯ÊıÃû:  void  Adc_Init(void)
-* ÊäÈë²ÎÊı: ÎŞ
-* ·µ»ØÖµ:   ÎŞ
-*º¯ÊıÃèÊö:  ADC³õÊ¼»¯
+*å‡½æ•°å:  void  Adc_Init(void)
+* è¾“å…¥å‚æ•°: æ— 
+* è¿”å›å€¼:   æ— 
+*å‡½æ•°æè¿°:  ADCåˆå§‹åŒ–
 *************************************/
 void  Adc_Init(void)
 {
@@ -62,31 +62,31 @@ void  Adc_Init(void)
     PB_CR2_C20 = 0;
     PB_ODR_ODR0 = 1;
     
-    ADC_CR1_ADON = 1;      //´ò¿ªadc
-    ADC_CR2_ALIGN = 1;     //ÓÒ¶ÔÆëÊı¾İ
-    ADC_CR1_SPSEL = 3;     //4·ÖÆµÊ±ÖÓ
+    ADC_CR1_ADON = 1;      //æ‰“å¼€adc
+    ADC_CR2_ALIGN = 1;     //å³å¯¹é½æ•°æ®
+    ADC_CR1_SPSEL = 3;     //4åˆ†é¢‘æ—¶é’Ÿ
 }
 
 /************************************* 
-*º¯ÊıÃû:  void  Timer_Init(void)
-* ÊäÈë²ÎÊı: ÎŞ
-* ·µ»ØÖµ:   ÎŞ
-*º¯ÊıÃèÊö:  ³õÊ¼»¯TIMER1¶¨Ê±Æ÷
+*å‡½æ•°å:  void  Timer_Init(void)
+* è¾“å…¥å‚æ•°: æ— 
+* è¿”å›å€¼:   æ— 
+*å‡½æ•°æè¿°:  åˆå§‹åŒ–TIMER1å®šæ—¶å™¨
 *************************************/
 void  Timer1_Init(void)
 {
     TIM1_PSCRH = 0;
-    TIM1_PSCRL = 7;          //(7+1)·ÖÆµÎª1M
+    TIM1_PSCRL = 7;          //(7+1)åˆ†é¢‘ä¸º1M
     TIM1_ARRH = 0x3;
-    TIM1_ARRL = 0xe8;        //Ã¿1msÖĞ¶ÏÒ»´Î
-    TIM1_IER = 0x01;         //ÔÊĞí¸üĞÂÖĞ¶Ï
-    TIM1_CR1 = 0x01;         //¼ÆÊıÆ÷Ê¹ÄÜ£¬¿ªÊ¼¼ÆÊı
+    TIM1_ARRL = 0xe8;        //æ¯1msä¸­æ–­ä¸€æ¬¡
+    TIM1_IER = 0x01;         //å…è®¸æ›´æ–°ä¸­æ–­
+    TIM1_CR1 = 0x01;         //è®¡æ•°å™¨ä½¿èƒ½ï¼Œå¼€å§‹è®¡æ•°
 }
 /************************************* 
-*º¯ÊıÃû:  void  EEP_Init(void)
-* ÊäÈë²ÎÊı: ÎŞ
-* ·µ»ØÖµ:   ÎŞ
-*º¯ÊıÃèÊö:  EEPROM´æ´¢³õÊ¼»¯
+*å‡½æ•°å:  void  EEP_Init(void)
+* è¾“å…¥å‚æ•°: æ— 
+* è¿”å›å€¼:   æ— 
+*å‡½æ•°æè¿°:  EEPROMå­˜å‚¨åˆå§‹åŒ–
 *************************************/
 void  EEP_Init(void)
 {
@@ -95,20 +95,20 @@ void  EEP_Init(void)
     FLASH_NCR2 = 0xff;
     FLASH_DUKR = MASS_KEY1;
     FLASH_DUKR = MASS_KEY2;
-    while(!FLASH_IAPSR_DUL);        //µÈ´ıĞ´±£»¤½âËø
+    while(!FLASH_IAPSR_DUL);        //ç­‰å¾…å†™ä¿æŠ¤è§£é”
 }
-/***** 8Î»Êı¾İĞ´Èëº¯Êı ****/
-void  eep_write(uint addr,uchar dat) //²»Í¬Ğ¾Æ¬£¬EEPROMÈİÁ¿²»Í¬
+/***** 8ä½æ•°æ®å†™å…¥å‡½æ•° ****/
+void  eep_write(uint addr,uchar dat) //ä¸åŒèŠ¯ç‰‡ï¼ŒEEPROMå®¹é‡ä¸åŒ
 {
     *((uchar*)(addr + EEP_BASE)) = dat;
-    while(!FLASH_IAPSR_EOP);        //µÈ´ıĞ´Íê³É
+    while(!FLASH_IAPSR_EOP);        //ç­‰å¾…å†™å®Œæˆ
 }
-/***** 8Î»Êı¾İ¶ÁÈ¡º¯Êı ****/
+/***** 8ä½æ•°æ®è¯»å–å‡½æ•° ****/
 uchar  eep_read(uint addr)
 {
     return  *((uchar*)(EEP_BASE + addr));
 }
-/***** 16Î»Êı¾İĞ´Èëº¯Êı ****/
+/***** 16ä½æ•°æ®å†™å…¥å‡½æ•° ****/
 void  eep_input(uint addr,uint data)
 {
     uchar  dataH, dataL;
@@ -121,10 +121,10 @@ void  eep_input(uint addr,uint data)
 }
 
 /************************************* 
-*º¯ÊıÃû:  uint  adc_get(uchar channel)
-* ÊäÈë²ÎÊı: channel:adcÍ¨µÀ
-* ·µ»ØÖµ:   Analog:²ÉÑùadcÖµ
-*º¯ÊıÃèÊö:  ¶ÔÏàÓ¦Í¨µÀµÄadcÖµ½øĞĞ²ÉÑù
+*å‡½æ•°å:  uint  adc_get(uchar channel)
+* è¾“å…¥å‚æ•°: channel:adcé€šé“
+* è¿”å›å€¼:   Analog:é‡‡æ ·adcå€¼
+*å‡½æ•°æè¿°:  å¯¹ç›¸åº”é€šé“çš„adcå€¼è¿›è¡Œé‡‡æ ·
 *************************************/
 uint  adc_get(uchar channel)
 {
@@ -133,13 +133,13 @@ uint  adc_get(uchar channel)
     uchar i;
     for(i=0;i<5;i++)
     {
-        ADC_CSR_CH = channel;              //AIN*½Å
-        ADC_CR1_ADON = 1;      //Æô¶¯×ª»»
+        ADC_CSR_CH = channel;              //AIN*è„š
+        ADC_CR1_ADON = 1;      //å¯åŠ¨è½¬æ¢
         asm("nop");
         asm("nop");
         while(ADC_CSR_EOC==0);
-        dataL = ADC_DRL;            //ÓÒ¶ÔÆëÊı¾İ
-        dataH = ADC_DRH;            //¶ÁÈ¡¼Ä´æÆ÷Êı¾İ
+        dataL = ADC_DRL;            //å³å¯¹é½æ•°æ®
+        dataH = ADC_DRH;            //è¯»å–å¯„å­˜å™¨æ•°æ®
         ADC_CSR_EOC = 0;
         value = dataH<<8|dataL;
         m[i]=value;
@@ -147,16 +147,16 @@ uint  adc_get(uchar channel)
     }
     max=m[0];
     min=m[0];
-    for(i=0;i<5;i++)    //È¥Á½Í·
+    for(i=0;i<5;i++)    //å»ä¸¤å¤´
     {
         if(m[i]>max)max=m[i];
         if(m[i]<min)min=m[i];
     }
-    Analog=(Analog-max-min)/3; //È¡Æ½¾ù
+    Analog=(Analog-max-min)/3; //å–å¹³å‡
     return Analog;
 }
 
-/***** ADCÂÖÑ¯´¦Àíº¯Êı ****/
+/***** ADCè½®è¯¢å¤„ç†å‡½æ•° ****/
 void ADC_FUNC(void)
 {
     if(Flag_AdcEvt){
@@ -164,7 +164,7 @@ void ADC_FUNC(void)
 
       }
 }
-/***** ·äÃùÆ÷ÂÖÑ¯´¦Àíº¯Êı ****/
+/***** èœ‚é¸£å™¨è½®è¯¢å¤„ç†å‡½æ•° ****/
 void BUZZER_LED_FUNC(void)
 {
     if(Flag_BuzEvt){
@@ -172,7 +172,7 @@ void BUZZER_LED_FUNC(void)
 
       }
 }
-/***** °´¼üÂÖÑ¯´¦Àíº¯Êı ****/
+/***** æŒ‰é”®è½®è¯¢å¤„ç†å‡½æ•° ****/
 void KEY_FUNC(void)
 {
     if(Flag_KeyEvt){
@@ -180,7 +180,7 @@ void KEY_FUNC(void)
 
       }
 }
-/***** ÒëÂë¹ÜÏÔÊ¾ÂÖÑ¯´¦Àíº¯Êı ****/
+/***** è¯‘ç ç®¡æ˜¾ç¤ºè½®è¯¢å¤„ç†å‡½æ•° ****/
 void DISPLAY_FUNC(void)
 {
     if(Flag_DispEvt){
@@ -189,21 +189,21 @@ void DISPLAY_FUNC(void)
       }
 }
 /************************************* 
-*º¯ÊıÃû:  void  main(void)
-* ÊäÈë²ÎÊı: ÎŞ
-* ·µ»ØÖµ:   ÎŞ
-*º¯ÊıÃèÊö:  Ö÷º¯Êı 
+*å‡½æ•°å:  void  main(void)
+* è¾“å…¥å‚æ•°: æ— 
+* è¿”å›å€¼:   æ— 
+*å‡½æ•°æè¿°:  ä¸»å‡½æ•° 
 *************************************/
 void  main(void)
 {
-    asm("sim");    //¹Ø×ÜÖĞ¶Ï
+    asm("sim");    //å…³æ€»ä¸­æ–­
     Fosc_Init();
     
     Adc_Init();
 
     //_18b20_init();
     EEP_Init();
-    asm("rim");    //¿ª×ÜÖĞ¶Ï
+    asm("rim");    //å¼€æ€»ä¸­æ–­
     while(1)
     {
         DISPLAY_FUNC();      
@@ -213,10 +213,10 @@ void  main(void)
     }
 }
 /************************************* 
-*º¯ÊıÃû:  __interrupt void TIM1_OVR_UIF(void)
-* ÊäÈë²ÎÊı: ÎŞ
-* ·µ»ØÖµ:   ÎŞ
-*º¯ÊıÃèÊö:  TIMER1ÖĞ¶Ïº¯Êı
+*å‡½æ•°å:  __interrupt void TIM1_OVR_UIF(void)
+* è¾“å…¥å‚æ•°: æ— 
+* è¿”å›å€¼:   æ— 
+*å‡½æ•°æè¿°:  TIMER1ä¸­æ–­å‡½æ•°
 *************************************/
 #pragma   vector = TIM1_OVR_UIF_vector
 __interrupt void TIM1_OVR_UIF(void)
@@ -224,15 +224,15 @@ __interrupt void TIM1_OVR_UIF(void)
     TIM1_SR1_UIF = 0;
     static uchar AdcTimeCnt = 0,KeyTimeCnt = 0,BuzTimeCnt = 0;
 
-     if(BuzTimeCnt++ >=Time_BuzImp){ // ÂÖÑ¯Ê±¼ä ºê¶¨ÒåÖĞ½øĞĞĞŞ¸Ä
+     if(BuzTimeCnt++ >=Time_BuzImp){ // è½®è¯¢æ—¶é—´ å®å®šä¹‰ä¸­è¿›è¡Œä¿®æ”¹
         BuzTimeCnt = 0;
         Flag_BuzEvt = 1;
     }
-    if(KeyTimeCnt++ >=Time_KeyImp){  //ÂÖÑ¯Ê±¼ä ºê¶¨ÒåÖĞ½øĞĞĞŞ¸Ä
+    if(KeyTimeCnt++ >=Time_KeyImp){  //è½®è¯¢æ—¶é—´ å®å®šä¹‰ä¸­è¿›è¡Œä¿®æ”¹
         KeyTimeCnt = 0;
         Flag_KeyEvt = 1;
     } 
-    if(AdcTimeCnt++ >=Time_AdcImp){ //ÂÖÑ¯Ê±¼ä ºê¶¨ÒåÖĞ½øĞĞĞŞ¸Ä
+    if(AdcTimeCnt++ >=Time_AdcImp){ //è½®è¯¢æ—¶é—´ å®å®šä¹‰ä¸­è¿›è¡Œä¿®æ”¹
         AdcTimeCnt = 0;
         Flag_AdcEvt = 1;
     }  
