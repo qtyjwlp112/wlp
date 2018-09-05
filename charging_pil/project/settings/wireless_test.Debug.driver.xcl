@@ -1,0 +1,15 @@
+"-p" 
+
+"E:\Embedded Workbench 7.3\stm8\config\ddf\iostm8s903k3.ddf" 
+
+"-d" 
+
+"stlink" 
+
+"--mcuname" 
+
+"STM8S903K3" 
+
+
+
+
